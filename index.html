@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+<body>
+
+<h2 style="color: red;">Nhập tên người yêu của bạn</h2>
+
+<p>Nhớ nhập cho đúng:</p>
+
+<input style="margin-bottom: 10px;
+outline: none; " id="demo" type="text">
+<button style = "border: 1px solid rgb(134, 53, 53);
+border-radius: 10px;" type="button" onclick="myFunction()">Xác Nhận</button>
+<p id="p01"></p>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById('demo').value;
+        const mess = document.getElementById('p01');
+        try{
+            if(x == ''){
+                document.getElementById('p01').style.color = "green";
+                throw "Nhập đi đừng ngại ^.^";
+            }else{
+                if(x != "Thành"){
+                    document.getElementById('p01').style.color = "pink";
+                throw "Sai rồi nha nhập lại đi :)))";
+                }else{
+                    if(x == "Thành"){
+                        document.getElementById('p01').style.color = "red";
+                        throw "Đúng rồi đó yêu cậu nhiều <3";
+                    }
+                }
+            
+            }
+            
+        }
+        catch(err){
+            mess.innerHTML = err;
+        }
+    }
+</script>
+
+</body>
+</html>
