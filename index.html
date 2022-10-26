@@ -15,12 +15,17 @@
 <p>Nhớ nhập cho đúng:</p>
 
 <input style="margin-bottom: 10px;
-outline: none; " id="demo" type="text">
+outline: none; " id="demo" type="text" onkeypress="functionEnter(event)">
 <button style = "border: 1px solid rgb(134, 53, 53);
 border-radius: 10px;" type="button" onclick="myFunction()">Xác Nhận</button>
 <p id="p01"></p>
 
 <script>
+    function fuctionEnter(event){
+        if(event.keyCode == 13){
+            myFunction();
+        }
+    }
     function myFunction() {
         var x = document.getElementById('demo').value;
         const mess = document.getElementById('p01');
