@@ -15,17 +15,18 @@
 <p>Nhớ nhập cho đúng:</p>
 
 <input style="margin-bottom: 10px;
-outline: none; " id="demo" type="text" onkeypress="functionEnter(event)">
+outline: none; " id="demo" type="text" onkeypress="enterKeyPressed(event)">
 <button style = "border: 1px solid rgb(134, 53, 53);
 border-radius: 10px;" type="button" onclick="myFunction()">Xác Nhận</button>
 <p id="p01"></p>
 
 <script>
-    function fuctionEnter(event){
-        if(event.keyCode == 13){
-            myFunction();
-        }
-    }
+   function enterKeyPressed(event) {
+      if (event.keyCode == 13) {
+         console.log("Enter key is pressed");
+         myFunction();
+      }
+   }
     function myFunction() {
         var x = document.getElementById('demo').value;
         const mess = document.getElementById('p01');
@@ -35,7 +36,7 @@ border-radius: 10px;" type="button" onclick="myFunction()">Xác Nhận</button>
                 throw "Nhập đi đừng ngại ^.^";
             }else{
                 if(x != "Thành"){
-                    document.getElementById('p01').style.color = "pink";
+                    document.getElementById('p01').style.color = "rgb(134, 53, 53)";
                 throw "Sai rồi nha nhập lại đi :)))";
                 }else{
                     if(x == "Thành"){
@@ -51,8 +52,8 @@ border-radius: 10px;" type="button" onclick="myFunction()">Xác Nhận</button>
             mess.innerHTML = err;
         }
         finally{
-            x = '';
-        }    
+            document.getElementById('demo').value = '';
+        }
     }
 </script>
 
