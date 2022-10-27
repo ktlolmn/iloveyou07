@@ -1,27 +1,90 @@
 <!DOCTYPE html>
 <html>
     <style>
+        
+        
         body{
+            font-size: 23px;
+            font-weight: 600;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            background-color: rgba(255, 228, 196, 0.685);
+            position: relative;
+        }
+
+        .divImg{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .img{
+            height: 200px;
+            border-radius: 10px;
+            margin: auto;
+            display: none;
+            position: absolute;
+            top: 0px;
+        }
+        h2{
+            margin-top: 200px;
+        }
+
+        .img-2{
+            display: none;
+        }
+
+        .img-3{
+            border-radius: 10px;
+            display: none;
+            height: 200px;
+        }
+
+        .img-1{
+            display: inline;
         }
     </style>
 <body>
+    <img class="img" src="./img/pngtree-glossy-heart-illustration-png-image_2551226-removebg-preview.png" alt="">
 
-<h2 style="color: red;">Nhập tên người yêu của bạn</h2>
+    <h2 style="color: red;">Nhập tên người yêu của bạn</h2>
+    <div class="divImg">
+        <p>Nhớ nhập cho đúng:</p>
+    </div>
 
-<p>Nhớ nhập cho đúng:</p>
-
-<input style="margin-bottom: 10px;
-outline: none; " id="demo" type="text" onkeypress="enterKeyPressed(event)">
-<button style = "border: 1px solid rgb(134, 53, 53);
-border-radius: 10px;" type="button" onclick="myFunction()">Xác Nhận</button>
-<p id="p01"></p>
-
+    <input style="margin-bottom: 10px;
+width: 200px;
+height: 30px;
+border-radius: 10px;
+    outline: none; " id="demo" type="text" onkeypress="enterKeyPressed(event)">
+    <button style = "border: 1px solid rgb(134, 53, 53);
+height: 30px;
+width: 100px;
+color: brown;
+font-size: 16px;
+font-weight: 600;
+    border-radius: 10px;" type="button" onclick="myFunction()">Xác Nhận</button>
+    <p id="p01"></p>
+    <img class="img-2" style="height: 200px;" src="https://s.memehay.com/files/posts/20210312/nam-ngu-khoc-nuoc-mat-chay-thanh-hang.jpeg" alt="">
+    <img class = "img-3" src="https://scontent.fsgn8-2.fna.fbcdn.net/v/t39.30808-6/274138533_3173201473004653_1215260941598430958_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=vDVSgJnBfVMAX_mWZ10&_nc_ht=scontent.fsgn8-2.fna&oh=00_AfBTEYSDaV9qfKEbox_GFPBqvSkmVcbhGsykHHX_26wFKw&oe=635E39F4" alt="">
 <script>
-   function enterKeyPressed(event) {
+    var imgElement = document.querySelector('img');
+    var imgElement2 = document.querySelector('.img-2');
+    var imgElement3 = document.querySelector('.img-3');
+
+    function addImg(){
+        imgElement2.classList.toggle('img-1')
+    }
+
+    setInterval(()=>{
+        imgElement.classList.toggle('img-1');
+    },300);
+    function addImg(){
+        imgElement2.classList.add('img-1');
+    }
+
+    function enterKeyPressed(event) {
       if (event.keyCode == 13) {
          console.log("Enter key is pressed");
          myFunction();
@@ -30,16 +93,31 @@ border-radius: 10px;" type="button" onclick="myFunction()">Xác Nhận</button>
     function myFunction() {
         var x = document.getElementById('demo').value;
         const mess = document.getElementById('p01');
+
+        if( x ==''){
+            imgElement2.classList.remove('img-1');
+            imgElement3.classList.remove('img-1');
+        }else{
+            if(x != "Mai xinh gái"){
+                addImg();
+                imgElement3.classList.remove('img-1');
+            }else{
+               imgElement3.classList.add('img-1');
+               imgElement2.classList.remove('img-1');
+            }
+        }
+
         try{
             if(x == ''){
                 document.getElementById('p01').style.color = "green";
                 throw "Nhập đi đừng ngại ^.^";
             }else{
-                if(x != "Thành"){
+                if(x != "Mai xinh gái"){
                     document.getElementById('p01').style.color = "rgb(134, 53, 53)";
-                throw "Sai rồi nha nhập lại đi :)))";
+                    throw "Sai rồi nha nhập lại đi :)))";
+
                 }else{
-                    if(x == "Thành"){
+                    if(x == "Mai xinh gái"){
                         document.getElementById('p01').style.color = "red";
                         throw "Đúng rồi đó yêu cậu nhiều <3";
                     }
