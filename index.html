@@ -132,6 +132,13 @@ font-weight: 600;
             document.getElementById('demo').value = '';
         }
     }
+    window.addEventListener('popstate', function(event) {
+      setTimeout(function() {
+     // Thực hiện hành động điều hướng trở lại sau 5 giây
+         window.history.back();
+    }, 5000); // chờ đợi 5 giây trước khi thực hiện hành động điều hướng trở lại
+});
+
 </script>
 
 </body>
